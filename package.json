@@ -1,0 +1,19 @@
+{
+  "name": "release-checklist",
+  "version": "1.0.0",
+  "description": "A Release Checklist Tool for tracking software release tasks",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install"
+  },
+  "keywords": ["release", "checklist", "tool"],
+  "author": "",
+  "license": "MIT"
+}

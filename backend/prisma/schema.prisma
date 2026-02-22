@@ -1,0 +1,24 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Release {
+  id              String   @id @default(uuid())
+  name            String
+  date            DateTime
+  additionalInfo String?  @map("additional_info")
+  stepsCompleted  Json     @default("[]") @map("steps_completed")
+  createdAt       DateTime @default(now()) @map("created_at")
+  updatedAt       DateTime @updatedAt @map("updated_at")
+
+  @@map("releases")
+  @@index([date(sort: Desc)])
+}
